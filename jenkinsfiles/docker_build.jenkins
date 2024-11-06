@@ -2,9 +2,10 @@
 // Run docker build
 properties([disableConcurrentBuilds()])
 
+def dockerHome = tool 'docker' 
+
 
 pipeline {
-    def dockerHome = tool 'docker' 
     agent { 
         label 'master'
         }
