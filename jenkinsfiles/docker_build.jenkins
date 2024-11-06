@@ -2,7 +2,9 @@
 // Run docker build
 properties([disableConcurrentBuilds()])
 
+
 pipeline {
+    def dockerHome = tool 'docker' 
     agent { 
         label 'master'
         }
@@ -15,7 +17,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('docker/toolbox') {
-                	sh 'docker build . '
+                	sh 'dockerHome build . '
                 }
             }
         }
